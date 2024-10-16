@@ -1,7 +1,7 @@
 import photo1 from "../images/Cup2.png";
 import photo2 from "../images/Cup.png";
 import geFlag from '../images/Flag_of_Georgia_Flat_Round_Corner-64x64.png'
-import enFlag from '../images/Flag_of_England_Flat_Round_Corner-64x64.png'
+import enFlag from '../images/Flag_of_United_Kingdom_Flat_Round_Corner-64x64 (1).png'
 
 
 export const base_url = "http://35.246.150.17:3001/cups_data";

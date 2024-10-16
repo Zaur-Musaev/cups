@@ -12,7 +12,8 @@ const containerStyle = {
   width: "100%",
   height: "100%",
   marginTop:'3px',
-  borderRadius: '5px'
+  borderRadius: '5px',
+  boxShadow:' rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'
 };
 
 const center = {
@@ -38,7 +39,7 @@ const MyMapComponent = () => {
   }, []);
 
   return (
-    <Row className="mapRow" style={{marginTop:'20px'}}>
+    <Row className="mapRow" style={{marginTop:'20px' }}>
       <Col className={styles.mapContainer} xs={12} lg={8} md={8} >
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
           {cupsData &&
@@ -54,7 +55,7 @@ const MyMapComponent = () => {
             ))}
         </GoogleMap>
       </Col>
-      <Col xs={12} lg ={4} md={4} style={{marginTop:'3px'}}>
+      <Col xs={12} lg ={4} md={4} style={{marginTop:'3px',}}>
         {selectedPhoto ? (
           <CupsPhoto photoUrl={selectedPhoto} />
         ) : (
@@ -63,12 +64,15 @@ const MyMapComponent = () => {
             style={{
               width: "100%",
               height: "100%",
-              backgroundColor: "whitesmoke",
+              backgroundColor: "wite",
+              boxShadow:' rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+              border: 'none'
+              
             }}
           >
             <Card.Body>
               <Logo />
-              <Card.Title>{language.selectPin}</Card.Title>
+              <Card.Title style={{marginTop: '100px'}}>{language.selectPin}</Card.Title>
               <Card.Text>{language.clickToView}</Card.Text>
             </Card.Body>
           </Card>

@@ -15,7 +15,7 @@ const Footer = () => {
         backgroundColor: "whitesmoke",
         textAlign: "center",
         padding: "2px",
-        boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'
+        boxShadow:' rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'
       }}
     >
       <Row className="w-100 text-center">

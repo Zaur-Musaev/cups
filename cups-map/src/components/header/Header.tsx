@@ -23,7 +23,7 @@ const Header = () => {
       variant="light"
       expand="lg"
       className="header"
-      style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}
+      style={{ boxShadow:' rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
     >
       <Container className="d-flex justify-content-start">
         <Navbar.Brand href="/" className="ms-0">
@@ -34,17 +34,17 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav" className="ms-auto">
           <Nav className="ms-auto">
             {/* Навигационные ссылки */}
-            <Button variant ="light">
+            <Button variant ="light" className="navButton">
               <Nav.Link as={Link} to="/home">
                 {language.home}
               </Nav.Link>
             </Button>
-            <Button variant ="light">
+            <Button variant ="light" className="navButton">
               <Nav.Link as={Link} to="/about">
                 {language.about}
               </Nav.Link>
             </Button>
-            <Button variant ="light">
+            <Button variant ="light" className="navButton">
               <Nav.Link as={Link} to="/contact">
                 {language.contact}
               </Nav.Link>
@@ -57,7 +57,7 @@ const Header = () => {
                 style={{
                   width: "32px",
                   height: "26px",
-                  marginLeft: "",
+                  marginLeft: "0",
                 }}
               />
             </Button>

@@ -37,3 +37,11 @@
 .mapRow {
   height: 70vh;
 }
+
+.navButton {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-left: 5px;
+  margin-right: 10px;
+  border: solid black 2px;
+  font-family: 'Gloria Hallelujah', cursive
+}
