@@ -1,45 +1,70 @@
-import {
-  AppBar,
-  Button,
-  ImageList,
-  ImageListItem,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { headerBackground, label1, label2 } from "../../utils/constants";
+import Logo from "./Logo";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { changeLanguage } from "../../features/languageSlice"; // Импортируем action
+import { en, translations } from "../../utils/constants";
 
 const Header = () => {
+  const language = useAppSelector((state) => state.language);
+  const dispatch = useAppDispatch()
+
+
+  const handleClickChangeLanguage = () => {
+    const newLanguage = language.language === 'en' ? translations.ka : translations.en;
+    dispatch(changeLanguage(newLanguage)); // Передаём action в dispatch
+  }
+
+
   return (
-    <AppBar
-      position="static"
-      sx={{ color: "white", backgroundImage: `url(${headerBackground})` }}
+    <Navbar
+      bg="light"
+      variant="light"
+      expand="lg"
+      className="header"
+      style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}
     >
-      <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          <ImageList sx={{ margin: "0px" }}>
-            <ImageListItem
-              sx={{ height: "50px", width: "50px", margin: "0px" }}
-            >
-              <div className="logo-container">
-                <img src={label1} alt="label1" className="logo logo-1" />
-                <img src={label2} alt="label2" className="logo logo-2" />
-              </div>
-            </ImageListItem>
-          </ImageList>
-        </Typography>
-        <Button sx={{ color: "black" }} component={Link} to="/home">
-          Home
-        </Button>
-        <Button sx={{ color: "black" }} component={Link} to="/about">
-          About
-        </Button>
-        <Button sx={{ color: "black" }} component={Link} to="/contact">
-          Contact
-        </Button>
-      </Toolbar>
-    </AppBar>
+      <Container className="d-flex justify-content-start">
+        <Navbar.Brand href="/" className="ms-0">
+          <Logo />
+        </Navbar.Brand>
+        {/* Кнопка для мобильного меню */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
+        <Navbar.Collapse id="basic-navbar-nav" className="ms-auto">
+          <Nav className="ms-auto">
+            {/* Навигационные ссылки */}
+            <Button variant ="light">
+              <Nav.Link as={Link} to="/home">
+                {language.home}
+              </Nav.Link>
+            </Button>
+            <Button variant ="light">
+              <Nav.Link as={Link} to="/about">
+                {language.about}
+              </Nav.Link>
+            </Button>
+            <Button variant ="light">
+              <Nav.Link as={Link} to="/contact">
+                {language.contact}
+              </Nav.Link>
+            </Button>
+            <Button variant ="light">
+              <img
+              onClick={handleClickChangeLanguage}
+                alt="flag"
+                src={language.flag}
+                style={{
+                  width: "32px",
+                  height: "26px",
+                  marginLeft: "",
+                }}
+              />
+            </Button>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

@@ -13,11 +13,11 @@
 }
 
 .logo-1 {
-  animation: logoFade .5s infinite alternate;
+  animation: logoFade 0.5s infinite alternate;
 }
 
 .logo-2 {
-  animation: logoFade .5s infinite alternate-reverse;
+  animation: logoFade 0.5s infinite alternate-reverse;
 }
 
 @keyframes logoFade {
@@ -31,4 +31,9 @@
     opacity: 1;
     visibility: hidden;
   }
+}
+
+
+.mapRow {
+  height: 70vh;
 }

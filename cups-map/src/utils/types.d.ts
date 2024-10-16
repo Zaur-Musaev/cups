@@ -15,4 +15,25 @@ export interface CupType {
     direction: number;
     positioningError: string;
   }
+
+  interface TranslationsType {
+    [key: string]: {
+      [subKey: string]: string;
+    };
+  }
   
+
+  // interface TranslationsType {
+  //   [key: string]: {
+  //     welcome: string;
+  //     contact: string;
+  //     home: string;
+  //     about: string;
+  //     selectPin: string;
+  //     clickToView: string;
+  //     projectName: string;
+  //     allRightsReserved: string;
+  //     map: string;
+  //     photos: string;
+  //   };
+  // }

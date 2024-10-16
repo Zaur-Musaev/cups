@@ -1,19 +1,17 @@
-import { ImageList, ImageListItem } from '@mui/material'
-import React from 'react'
+import React from 'react';
+import { Card } from 'react-bootstrap';
 
 interface CupsPhotoProps {
-    photoUrl: string;
-  }
-
-
-const CupsPhoto = ({photoUrl}: CupsPhotoProps) => {
-  return (
-    <ImageList sx={{margin: '0px'}}>
-        <ImageListItem sx={{minHeight: '400px', minWidth: '300px', margin:'0px'}}>
-            <img src={photoUrl} alt={photoUrl}/>
-        </ImageListItem>
-    </ImageList>
-  )
+  photoUrl: string;
 }
 
-export default CupsPhoto
+const CupsPhoto = ({ photoUrl }: CupsPhotoProps) => {
+  return (
+    
+      <img src={photoUrl} alt={photoUrl} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+    
+  );
+};
+
+export default CupsPhoto;
+

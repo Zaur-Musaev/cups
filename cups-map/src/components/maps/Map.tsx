@@ -2,12 +2,17 @@ import React, { useEffect, useState } from "react";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import { base_url } from "../../utils/constants";
 import { CupType } from "../../utils/types";
-import { Box } from "@mui/material";
+import { Row, Col, Card } from "react-bootstrap";
 import CupsPhoto from "../cupsData/CupsPhoto";
+import Logo from "../header/Logo";
+import styles from '../../styles/Map.module.css'
+import { useAppSelector } from "../../app/hooks";
 
 const containerStyle = {
   width: "100%",
-  height: "400px",
+  height: "100%",
+  marginTop:'3px',
+  borderRadius: '5px'
 };
 
 const center = {
@@ -16,6 +21,7 @@ const center = {
 };
 
 const MyMapComponent = () => {
+  const language = useAppSelector(state => state.language)
   const [cupsData, setCupsData] = useState<CupType[] | null>(null);
   const [selectedPhoto, setSelectedPhoto] = useState("");
 
@@ -32,9 +38,8 @@ const MyMapComponent = () => {
   }, []);
 
   return (
-    <Box display="flex" width="100%" gap={2} sx={{ margin: "5px" }}>
-      {/* Контейнер для карты */}
-      <Box flex={1}>
+    <Row className="mapRow" style={{marginTop:'20px'}}>
+      <Col className={styles.mapContainer} xs={12} lg={8} md={8} >
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
           {cupsData &&
             Object.values(cupsData).map((item) => (
@@ -48,11 +53,28 @@ const MyMapComponent = () => {
               />
             ))}
         </GoogleMap>
-      </Box>
-      <Box flex={1} display="flex" alignItems="center" justifyContent="center">
-        <CupsPhoto photoUrl={selectedPhoto} />
-      </Box>
-    </Box>
+      </Col>
+      <Col xs={12} lg ={4} md={4} style={{marginTop:'3px'}}>
+        {selectedPhoto ? (
+          <CupsPhoto photoUrl={selectedPhoto} />
+        ) : (
+          <Card
+            className="text-center"
+            style={{
+              width: "100%",
+              height: "100%",
+              backgroundColor: "whitesmoke",
+            }}
+          >
+            <Card.Body>
+              <Logo />
+              <Card.Title>{language.selectPin}</Card.Title>
+              <Card.Text>{language.clickToView}</Card.Text>
+            </Card.Body>
+          </Card>
+        )}
+      </Col>
+    </Row>
   );
 };
 

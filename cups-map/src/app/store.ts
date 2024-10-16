@@ -1,8 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import language from '../features/languageSlice'
 
 export const store = configureStore({
   reducer: {
-
+    language: language
   },
 });
 
