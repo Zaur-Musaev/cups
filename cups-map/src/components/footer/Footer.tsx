@@ -7,15 +7,7 @@ const Footer = () => {
       fluid
       className="mt-2 footer"
       style={{
-        position: "fixed",
-        left: "0",
-        bottom: "0",
-        width: "100%",
-        height: '10%',
-        backgroundColor: "whitesmoke",
-        textAlign: "center",
-        padding: "2px",
-        boxShadow:' rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'
+        
       }}
     >
       <Row className="w-100 text-center">

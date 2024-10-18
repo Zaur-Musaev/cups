@@ -10,9 +10,9 @@ import { Container } from 'react-bootstrap'
 
 const Main = () => {
   return (
-    <div>
+    <div className='main'>
       <Header/>
-      <Container>
+      <Container >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
