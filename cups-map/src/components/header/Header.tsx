@@ -16,18 +16,18 @@ const Header = () => {
   };
 
   return (
-    <Navbar bg="light" variant="light" expand="lg" className="header">
+    <Navbar  expand="lg" className="header">
       <Container className="d-flex justify-content-start">
         <Navbar.Brand href="/" className="ms-0 me-0">
           <Logo />
         </Navbar.Brand>
-        <FormText as="h1">
+        <FormText className="logoText"  >
         Cups Photo Project
         </FormText>
         {/* Кнопка для мобильного меню */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
         <Navbar.Collapse id="basic-navbar-nav" className="ms-auto">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto nav-items">
             {/* Навигационные ссылки */}
             <Button variant="light" className="navButton">
               <Nav.Link as={Link} to="/home">

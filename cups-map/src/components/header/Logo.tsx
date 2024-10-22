@@ -4,13 +4,13 @@ import { label1, label2 } from '../../utils/constants'
 
 const Logo = () => {
   return (
-    <ImageList sx={{ margin: "0px" }}>
+    <ImageList sx={{ marginTop: "15px" }}>
             <ImageListItem
-              sx={{ height: "50px", width: "50px", margin: "0px" }}
+              sx={{ height: "40px", width: "40px", margin: "0px" }}
             >
               <div className="logo-container">
-                <img src={label1} alt="label1" className="logo logo-1" />
-                <img src={label2} alt="label2" className="logo logo-2" />
+                <img style={{height: "40px", width: "40px"}} src={label1} alt="label1" className="logo logo-1" />
+                <img style={{height: "40px", width: "40px"}} src={label2} alt="label2" className="logo logo-2" />
               </div>
             </ImageListItem>
           </ImageList>

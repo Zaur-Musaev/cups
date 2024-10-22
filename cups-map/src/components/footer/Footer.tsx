@@ -5,20 +5,18 @@ const Footer = () => {
   return (
     <Container
       fluid
-      className="mt-2 footer"
-      style={{
-        
-      }}
+      className="footer"
     >
       <Row className="w-100 text-center">
-        <Col xs={12}>
-          <p className="mb-1 fw-bold">Cups Photo Project</p>
+        <Col>
+          <p className="">Cups Photo Project</p>
         </Col>
-        <Col md={6} className="text-muted mb-1">
+        <Col  className="">
           © 2024 Cups Project. All rights reserved.
         </Col>
-        <Col md={6}>
+        <Col >
           <a
+            style={{color:'#E66446'}}
             href="mailto:contact@cupsproject.com"
             className="text-decoration-none me-3"
           >
@@ -29,10 +27,12 @@ const Footer = () => {
             href="https://twitter.com/cupsproject"
             target="_blank"
             className="text-decoration-none me-3"
+            style={{color:'#E66446'}}
           >
             Twitter
           </a>
           <a
+            style={{color:'#E66446'}}
             rel="noopener noreferrer"
             href="https://github.com/cupsproject"
             target="_blank"

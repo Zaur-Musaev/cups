@@ -6,8 +6,8 @@ import GoogleMapsLoader from "./components/maps/GoogleMapLoader";
 
 function App() {
   return (
-    // <div style={{height: '100vh'}}>
-    <div>
+    <div className="app">
+
       <GoogleMapsLoader>
         <Main />
       </GoogleMapsLoader>

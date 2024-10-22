@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { GoogleMap, Marker } from "@react-google-maps/api";
-import { base_url, pointPin, translations } from "../../utils/constants";
+import { base_url, pointPin } from "../../utils/constants";
 import { CupType } from "../../utils/types";
-import { Row, Modal, Button } from "react-bootstrap";
+import { Row, Modal } from "react-bootstrap";
 import styles from "../../styles/Map.module.css";
 import { useAppSelector } from "../../app/hooks";
 import { mapStyle } from "../../utils/mapStyle";
@@ -10,9 +10,6 @@ import { mapStyle } from "../../utils/mapStyle";
 const containerStyle = {
   width: "100%",
   height: "100%",
-  marginTop: "3px",
-  borderRadius: "5px",
-  boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
 };
 
 const center = {
@@ -25,7 +22,10 @@ const MyMapComponent = () => {
   const [selectedPhoto, setSelectedPhoto] = useState("");
   const [hoveredPhoto, setHoveredPhoto] = useState(""); // состояние для превью
   const [showModal, setShowModal] = useState(false); // состояние для модального окна
-  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 }); // позиция мыши для превью
+  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  }); // позиция мыши для превью
 
   useEffect(() => {
     fetch(`${base_url}`)
@@ -56,14 +56,18 @@ const MyMapComponent = () => {
         mapContainerStyle={containerStyle}
         center={center}
         zoom={13}
-        options={{ styles: mapStyle }}
+        options={{
+          styles: mapStyle,
+          fullscreenControl: false,
+          mapTypeControl: false,
+        }}
       >
         {cupsData &&
           Object.values(cupsData).map((item) => (
             <Marker
               icon={{
                 url: pointPin,
-                scaledSize: new google.maps.Size(35, 35),
+                scaledSize: new google.maps.Size(40, 40),
               }}
               animation={google.maps.Animation.DROP}
               onClick={() => handleMarkerClick(item.imageUrl)}
@@ -84,16 +88,16 @@ const MyMapComponent = () => {
           className={styles.preview}
           style={{
             position: "absolute",
-      top: mousePosition.y + 15 + "px",
-      left: mousePosition.x + 15 + "px",
-      pointerEvents: "none",
-
-
-
-
+            top: mousePosition.y + 15 + "px",
+            left: mousePosition.x + 15 + "px",
+            pointerEvents: "none",
           }}
         >
-          <img src={hoveredPhoto} alt="Preview" style={{ width: "100px", height: "auto", borderRadius: '10px'}} />
+          <img
+            src={hoveredPhoto}
+            alt="Preview"
+            style={{ width: "100px", height: "auto", borderRadius: "10px" }}
+          />
         </div>
       )}
 
@@ -103,10 +107,13 @@ const MyMapComponent = () => {
           <Modal.Title>{"View Photo"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img src={selectedPhoto} alt="Full View" style={{ width: "100%", height: "auto" }} />
+          <img
+            src={selectedPhoto}
+            alt="Full View"
+            style={{ width: "100%", height: "auto" }}
+          />
         </Modal.Body>
-        <Modal.Footer>
-        </Modal.Footer>
+        <Modal.Footer></Modal.Footer>
       </Modal>
     </Row>
   );
